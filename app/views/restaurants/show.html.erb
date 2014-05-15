@@ -1,27 +1,54 @@
-<table>
-  <tr>
-    <td><%=@restaurant.name%> (at <%=@restaurant.city%>)</td>
-    <td><%= image_tag(@restaurant.photo_url, {size:'70x90', alt: 'photo'})%>  </td>
-  </tr>
-</table>
+<div class="container">
+<div class="row">
+  <div class="col-md-4">
+    <div class="pull-right">
+      <%= image_tag(@restaurant.photo_url, {size:'300x400', alt: 'photo'})%>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="row">
+    <h2><%=@restaurant.name%></h2>
+    </div>
+    <div class="row">
+    at <%=@restaurant.city%>
+    </div>
+  </div>
+</div>
 
-<table> Comments
+
+
+<h3><%= @restaurant.reviews.length%> Comments</h3>
   <% @restaurant.reviews.each do |review| %>
-  <tr>
-    <td><%=review.body%></td>
-    <td><%=review.created_at%></td>
-    <td><%= button_to("Delete review", review, method: 'delete') %></td>
-  </tr>
+  <div class="comment">
+    <div class="row">
+    Posted on <%=review.created_at%> <%= link_to("Delete review", review, method: 'delete') %>
+    </div>
+    <div class="row">
+      <h4><%=review.body%></h4>
+    </div>
+  </div>
   <% end %>
-</table>
 
-<%= form_for @restaurant.reviews.build do |f| %>
-  <%= f.label :body %>
-  <%= f.text_field :body %>
-  <%= f.hidden_field :restaurant_id %>
-  <%= f.submit %>
-<% end %>
+<hr>
+<div class="row">
+  <div class="form">
+    <h3>Write a new comment</h3>
+    <%= form_for @restaurant.reviews.build do |f| %>
+      <div class="form-group">
+      </div>
+      <div class="form-group">
+        <%= f.text_field :body %>
+      </div>
+      <div class="form-group">
+        <%= f.hidden_field :restaurant_id %>
+      </div>
+      <%= f.submit "Comment" %>
+    <% end %>
+  </div>
+</div>
 
-
-<%= link_to 'Go back to the full list', restaurants_path %>
-<%= button_to("Delete restaurant", @restaurant, method: 'delete') %>
+  <hr>
+  <div class="pull-right">
+    <%= link_to("Delete restaurant", @restaurant, method: 'delete') %>
+  </div>
+</div>
