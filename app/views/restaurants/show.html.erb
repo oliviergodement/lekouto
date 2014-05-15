@@ -35,14 +35,12 @@
     <h3>Write a new comment</h3>
     <%= form_for @restaurant.reviews.build do |f| %>
       <div class="form-group">
-      </div>
-      <div class="form-group">
-        <%= f.text_field :body %>
+        <%= f.text_field :body, class: "form-control" %>
       </div>
       <div class="form-group">
         <%= f.hidden_field :restaurant_id %>
       </div>
-      <%= f.submit "Comment" %>
+      <%= f.submit "Comment", class: "btn btn-primary"%>
     <% end %>
   </div>
 </div>

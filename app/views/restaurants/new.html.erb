@@ -5,19 +5,19 @@
     <%= form_for @restaurant do |f| %>
     <div class="form-group">
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, class: "form-control" %>
     </div>
 
     <div class="form-group">
       <%= f.label :city %>
-      <%= f.text_field :city %>
+      <%= f.text_field :city, class: "form-control" %>
     </div>
 
     <div class="form-group">
       <%= f.label :photo_url %>
-      <%= f.text_field :photo_url %>
+      <%= f.text_field :photo_url, class: "form-control" %>
     </div>
-      <%= f.submit %>
+      <%= f.submit "Ajouter", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
