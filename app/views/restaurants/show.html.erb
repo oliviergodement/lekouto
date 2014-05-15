@@ -1,0 +1,27 @@
+<table>
+  <tr>
+    <td><%=@restaurant.name%> (at <%=@restaurant.city%>)</td>
+    <td><%= image_tag(@restaurant.photo_url, {size:'70x90', alt: 'photo'})%>  </td>
+  </tr>
+</table>
+
+<table> Comments
+  <% @restaurant.reviews.each do |review| %>
+  <tr>
+    <td><%=review.body%></td>
+    <td><%=review.created_at%></td>
+    <td><%= button_to("Delete review", review, method: 'delete') %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= form_for @restaurant.reviews.build do |f| %>
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+  <%= f.hidden_field :restaurant_id %>
+  <%= f.submit %>
+<% end %>
+
+
+<%= link_to 'Go back to the full list', restaurants_path %>
+<%= button_to("Delete restaurant", @restaurant, method: 'delete') %>

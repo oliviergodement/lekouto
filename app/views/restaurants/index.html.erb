@@ -1,0 +1,9 @@
+<table>
+<% @restaurants.each do |restaurant| %>
+  <tr>
+    <td><%= link_to restaurant.name, restaurant_path(restaurant)%></td>
+    <td><%=restaurant.city%></td>
+    <td><%= image_tag(restaurant.photo_url, {size:'70x90', alt: 'photo'})%>  </td>
+  </tr>
+<% end %>
+</table>
