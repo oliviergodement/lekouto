@@ -21,7 +21,7 @@
   <% @restaurant.reviews.each do |review| %>
   <div class="comment">
     <div class="row">
-    Posted on <%=review.created_at%> <%= link_to("Delete review", review, method: 'delete') %>
+    Posted on <%=review.created_at.to_formatted_s(:short)%> <%= link_to("Delete review", review, method: 'delete') %>
     </div>
     <div class="row">
       <h4><%=review.body%></h4>
