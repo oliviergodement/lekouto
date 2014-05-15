@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'
+  root 'welcome#index', as: 'welcome'
+
 
   resources :restaurants
   resources :reviews

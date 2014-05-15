@@ -14,3 +14,10 @@
  *= require_tree .
  *= require_self
  */
+.navbar {
+  z-index: 4;
+}
+
+.container {
+  max-width: 1100px;
+}

@@ -1,9 +1,54 @@
-<table>
+<div class="container">
+
+
+<div class="panel panel-primary today center-block">
+  <div class="panel-heading"><h3>Today's pick</h3></div>
+    <div class="panel-content">
+      <div class="panel-body">
+        <div class="row">
+          <p class="lead">We recommand <strong><%= link_to @today_restaurant.name, restaurant_path(@today_restaurant)%></strong></p>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= link_to(image_tag(@today_restaurant.photo_url, {size:'200x300', alt: 'photo'}), restaurant_path(@today_restaurant)) %>
+          </div>
+          <div class="col-md-6">
+
+            <p>
+              <% if @today_restaurant.reviews.last %>
+              <h4>Last user review:</h4>
+              <%= @today_restaurant.reviews.last.body %>
+              <% end %>
+            </p>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+<h3>Our restaurants:</h3>
 <% @restaurants.each do |restaurant| %>
-  <tr>
-    <td><%= link_to restaurant.name, restaurant_path(restaurant)%></td>
-    <td><%=restaurant.city%></td>
-    <td><%= image_tag(restaurant.photo_url, {size:'70x90', alt: 'photo'})%>  </td>
-  </tr>
+  <div class="row restaurant-row">
+    <div class="col-md-3">
+      <div class="center-img">
+        <%= link_to(image_tag(restaurant.photo_url, {size:'150x200', alt: 'photo'}), restaurant_path(restaurant)) %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <p class="lead">
+      <%= link_to restaurant.name, restaurant_path(restaurant)%>
+      </p>
+      <p>
+        <% if restaurant.reviews.last %>
+        <h4>Last user review:</h4>
+        <%= restaurant.reviews.last.body %>
+        <% end %>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <%=restaurant.city%>
+    </div>
+  </div>
 <% end %>
-</table>
+</div>

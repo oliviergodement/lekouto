@@ -5,6 +5,7 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+    @today_restaurant = @restaurants.sample
   end
 
   def show

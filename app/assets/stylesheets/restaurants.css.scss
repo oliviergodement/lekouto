@@ -1,3 +1,30 @@
 // Place all the styles related to the Restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  max-width: 1100px;
+}
+
+.center-img img {
+  margin: 0 auto;
+}
+
+.restaurant-row {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.today {
+  max-width: 500px;
+  margin-bottom: 40px;
+}
+
+.panel-content {
+  margin-left: 30px;
+}
+
+.panel-heading h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
